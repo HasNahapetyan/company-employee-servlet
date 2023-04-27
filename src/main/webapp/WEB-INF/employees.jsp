@@ -30,8 +30,7 @@
         <td><%=employee.getSurname()%></td>
         <td><%=employee.getEmail()%></td>
         <td><%=employee.getCompany().getId()%></td>
-        <td><a href="/removeEmployee?id=<%=employee.getId()%>">delete</a>
-            / <a href="/updateEmployee?id=<%=employee.getId()%>">update</a></td>
+        <td><a href="/removeEmployee?id=<%=employee.getId()%>">delete</a></td>
     </tr>
     <%}%>
 </table>
