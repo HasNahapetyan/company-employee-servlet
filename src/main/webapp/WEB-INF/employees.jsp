@@ -31,6 +31,7 @@
         <td><%=employee.getEmail()%></td>
         <td><%=employee.getCompany().getId()%></td>
         <td><a href="/removeEmployee?id=<%=employee.getId()%>">delete</a></td>
+
     </tr>
     <%}%>
 </table>
