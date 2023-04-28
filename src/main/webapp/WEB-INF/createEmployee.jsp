@@ -8,16 +8,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%List<Company> companies = (List<Company>) request.getAttribute("companies");%>
-
 <head>
     <title>Create Employee</title>
 </head>
+<%List<Company> companies = (List<Company>) request.getAttribute("companies"); %>
 <body>
 <a href="/employees">Back</a>
 <h2>Create Company</h2>
-<form action="/createEmployee" method="post"><%-- action-ը այն servlet-ի անունը որին պետք է տանք տվյալները
-  և doPost-ը կկանչի --%>
+<form action="/createEmployee" method="post">
     name: <input type="text" name = "name"><br>
     surname: <input type="text" name = "surname"><br>
     email: <input type="text" name = "email"><br>
