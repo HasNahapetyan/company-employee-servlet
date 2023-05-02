@@ -14,13 +14,21 @@
     <title>Employees</title>
 </head>
 <%List<Employee> employees = (List<Employee>) request.getAttribute("employees");
-    User user = (User) session.getAttribute("user");%>
+    User user = (User) session.getAttribute("user");
+    String keyword = request.getParameter("keyword") == null ||
+            request.getParameter("keyword").equals("null") ? "" : request.getParameter("keyword");
+%>
 
 <body>
 <a href="/home">Back</a>
 <h2>Employees</h2><a href="/createEmployee">Create Employee</a>
+<form action="/employees" method="get">
+    <input type="text" name="keyword" value="<%=keyword%>">
+    <input type="submit" value="search">
+</form>
 <table border="2">
     <tr>
+        <th>image</th>
         <th>name</th>
         <th>surname</th>
         <th>email</th>
@@ -32,6 +40,14 @@
     <%if (employees != null && !employees.isEmpty())
         for(Employee employee: employees){%>
     <tr>
+        <td>
+            <% if (employee.getPicName() == null || employee.getPicName().equalsIgnoreCase("null")) { %>
+            <img src="/img/prifile_icon.png" width="100">
+            <%} else {%>
+            <a href="/getImage?picName=<%=employee.getPicName()%>"><img
+                    src="/getImage?picName=<%=employee.getPicName()%>" width="100"> </a>
+            <%}%>
+        </td>
         <td><%=employee.getName()%></td>
         <td><%=employee.getSurname()%></td>
         <td><%=employee.getEmail()%></td>

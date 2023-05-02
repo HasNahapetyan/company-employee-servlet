@@ -15,7 +15,7 @@
 <body>
 <a href="/employees">Back</a>
 <h2>Create Company</h2>
-<form action="/createEmployee" method="post">
+<form action="/createEmployee" method="post" enctype="multipart/form-data" <%--form-ի մեջ նաև նկար կա բերելու--%>>
     name: <input type="text" name = "name"><br>
     surname: <input type="text" name = "surname"><br>
     email: <input type="text" name = "email"><br>
@@ -27,6 +27,8 @@
         <%}%>
     </select>
     <br>
+    image:
+    <input type="file" name="profilePic">
     <input type="submit" value="create">
 </form>
 </body>
